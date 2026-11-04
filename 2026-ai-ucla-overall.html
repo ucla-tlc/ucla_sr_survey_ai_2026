@@ -254,20 +254,24 @@ table.mini th, table.mini td { padding: 6px 10px; border-bottom: 1px solid var(-
 .qnote { margin: 12px 0 0; font-size: 18px; line-height: 1.35; color: var(--muted); max-width: 660px; }
 .pies { display: grid; grid-template-columns: 1fr 1fr; column-gap: 56px; align-items: start; }
 .pies figure { margin: 0; }
-.pies h3 { font-size: 26px; line-height: 1.22; font-weight: 760; color: var(--navy); margin: 0 0 18px; max-width: 660px; }
-.pie-row { display: flex; align-items: center; gap: 28px; }
-.pie { width: 272px; height: 272px; border-radius: 50%; flex: none; position: relative; }
-.pie span { position: absolute; inset: 62px; z-index: 1; border-radius: 50%; background: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
-.pie span b { font-size: 34px; font-weight: 800; color: var(--navy); line-height: 1; letter-spacing: -0.02em; }
-.pie span em { font-style: normal; font-size: 16px; color: var(--muted); margin-top: 4px; }
+.pies h3 { font-size: 22px; line-height: 1.25; font-weight: 760; color: var(--navy); margin: 0 0 4px; max-width: 680px; }
+.qfmt { margin: 0 0 12px; font-size: 16px; line-height: 1.35; color: var(--muted); }
+.pie-row { display: flex; align-items: center; gap: 22px; }
+.pie { width: 188px; height: 188px; border-radius: 50%; flex: none; position: relative; }
+.pie span { position: absolute; inset: 44px; z-index: 1; border-radius: 50%; background: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.pie span b { font-size: 26px; font-weight: 800; color: var(--navy); line-height: 1; letter-spacing: -0.02em; }
+.pie span em { font-style: normal; font-size: 14px; color: var(--muted); margin-top: 3px; }
 .pie.purpose { background: conic-gradient(var(--never) 0 17.534%, var(--blue) 17.534% 100%); }
 .pie.often { background: conic-gradient(var(--gold) 0 38.043%, var(--sky) 38.043% 80.158%, var(--never) 80.158% 100%); }
 .pie-key { list-style: none; margin: 0; padding: 0; }
-.pie-key li { display: grid; grid-template-columns: 22px auto; column-gap: 12px; align-items: start; margin: 0 0 16px; }
+.pie-key li { display: grid; grid-template-columns: 18px auto; column-gap: 10px; align-items: start; margin: 0 0 10px; }
 .pie-key li:last-child { margin-bottom: 0; }
-.pie-key i { margin-top: 5px; }
-.pie-key b { display: block; font-size: 28px; font-weight: 800; color: var(--navy); line-height: 1; }
-.pie-key span { display: block; font-size: 18px; line-height: 1.3; color: var(--ink); margin-top: 4px; }
+.pie-key i { margin-top: 3px; width: 16px; height: 16px; }
+.pie-key b { display: block; font-size: 22px; font-weight: 800; color: var(--navy); line-height: 1; }
+.pie-key span { display: block; font-size: 16px; line-height: 1.3; color: var(--ink); margin-top: 3px; }
+.qopts { margin: 10px 0 0; padding: 0 0 0 16px; font-size: 15px; line-height: 1.35; }
+.qopts.two { columns: 2; column-gap: 22px; }
+.qopts li { break-inside: avoid; margin: 0 0 1px; }
 
 /* 7. Heatmap */
 .heat-split { grid-template-columns: 1fr 420px; column-gap: 48px; }
@@ -686,32 +690,36 @@ body.list .progress, body.list .controls, body.list .cover-hint { display: none;
 <div class="script-src" hidden><p>This is only the 5,340 students who named a use, and they could choose more than one. The top of the list is thinking and studying: brainstorming, then research, clarifying a hard idea, summarizing, and making study materials. Drafting or revising writing is further down, under 40 percent. So the common job is not “write my paper.” It is help me think, look it up, and study. The box on the right is a different group. The next slide stays with them.</p></div></section>
 <section class="slide" aria-label="Two questions, two counts">
   <h2>Two questions, two counts.</h2>
-  <p class="dek">The blue slice is the purpose chart. The pie on the right is a different question, so the gray slices are not the same students.</p>
+  <p class="dek">Q24 is the purpose chart. Q23 is how often. The gray slices are not the same students.</p>
   <div class="pies">
     <figure>
-      <p class="qtag">Purpose question</p>
-      <h3>For what purposes have you used AI for coursework?</h3>
+      <p class="qtag">Q24 / Q214</p>
+      <h3>For what purposes have you used AI tools for your coursework?</h3>
+      <p class="qfmt">Select all that apply.</p>
       <div class="pie-row">
-        <div class="pie purpose" role="img" aria-label="Purpose question, 6,473 students. 82.5 percent, 5,340, named a purpose. That slice is the purpose chart. 17.5 percent, 1,133, checked only I did not use AI."><span><b>6,473</b><em>answered</em></span></div>
+        <div class="pie purpose" role="img" aria-label="Question 24, 6,473 students. 82.5 percent, 5,340, named a purpose. That slice is the purpose chart. 17.5 percent, 1,133, checked only I did not use AI."><span><b>6,473</b><em>answered</em></span></div>
         <ul class="pie-key">
           <li><i class="sw" style="background:var(--blue)"></i><div><b>82.5%</b><span>Named a purpose. 5,340. This slice is the purpose chart.</span></div></li>
           <li><i class="sw nv"></i><div><b>17.5%</b><span>Only “I did not use AI.” 1,133. Not in that chart.</span></div></li>
         </ul>
       </div>
-      <p class="qnote">What they said they did. It does not say a course banned AI, that they preferred not to use it, or that they had no access.</p>
+      <ul class="qopts two"><li>Brainstorming ideas</li><li>Researching topics</li><li>Drafting or revising writing</li><li>Summarizing readings or lectures</li><li>Code generation or debugging</li><li>Drafting or revising presentations</li><li>Translation</li><li>Data analysis or visualization</li><li>Feedback on work</li><li>Creating study materials</li><li>Clarifying complex topics</li><li>Transcription</li><li>Other</li><li>I did not use AI for my coursework</li></ul>
+      <p class="qnote">The gray answer is what they said they did. It does not say a course banned AI, that they preferred not to use it, or that they had no access.</p>
     </figure>
     <figure>
-      <p class="qtag">How often question</p>
-      <h3>How often have you used each kind of AI tool?</h3>
+      <p class="qtag">Q23 / Q213</p>
+      <h3>How often have you used AI tools or features in your UCLA coursework during the past year?</h3>
+      <p class="qfmt">One rating per row: Never; Once; Several times per year; Monthly; Weekly; Several times per week; Daily.</p>
       <div class="pie-row">
-        <div class="pie often" role="img" aria-label="How often question, 6,703 students. Weekly or more 38.0 percent, 2,550. Less than weekly 42.1 percent, 2,823. Never on every tool 19.8 percent, 1,330."><span><b>6,703</b><em>rated a tool</em></span></div>
+        <div class="pie often" role="img" aria-label="Question 23, 6,703 students. Weekly or more 38.0 percent, 2,550. Less than weekly 42.1 percent, 2,823. Never on every tool 19.8 percent, 1,330."><span><b>6,703</b><em>rated a tool</em></span></div>
         <ul class="pie-key">
           <li><i class="sw wk"></i><div><b>38.0%</b><span>Weekly or more. 2,550.</span></div></li>
           <li><i class="sw lt"></i><div><b>42.1%</b><span>Less than weekly. 2,823.</span></div></li>
           <li><i class="sw nv"></i><div><b>19.8%</b><span>Never on every tool. 1,330.</span></div></li>
         </ul>
       </div>
-      <p class="qnote">Text tools alone are a separate cut: 25.4% Never, 1,697 of 6,681. Those students may still have used a coding, reading, or image tool.</p>
+      <ul class="qopts"><li>Generative text tools (e.g., ChatGPT, Gemini, Claude, Perplexity AI)</li><li>Coding and productivity assistants (e.g., GitHub Copilot, Cursor IDE, Microsoft Copilot, CoCalc)</li><li>Reading or summarizing tools (e.g., ChatPDF, Notebook LM)</li><li>Image or media generation tools (e.g., DALL·E, Midjourney, Firefly, LMS-integrated AI, Google Workspace AI)</li><li>Other (write-in)</li></ul>
+      <p class="qnote">Text tools alone are a separate cut: 25.4% Never, 1,697 of 6,681. Those students may still have used another tool. The form says “select all,” but the scale and the data are a frequency for each tool.</p>
     </figure>
   </div>
   <footer class="sf"><span class="sec"><b class="org">UCLA TLC</b><span>Two questions</span></span><span class="sf-r"><button class="itembtn" type="button" aria-expanded="false" aria-controls="item-6">Survey items</button><span class="pg">6 / 16</span></span></footer>
@@ -732,7 +740,7 @@ body.list .progress, body.list .controls, body.list .cover-hint { display: none;
     <p>The form says “select all that apply,” but the scale and the data are a frequency for each tool.</p>
   </div>
 </div></aside>
-<div class="script-src" hidden><p>Two pies, and they are two questions. Start on the left. For what purposes have you used AI for coursework? Of 6,473 students, 82.5 percent named a purpose. That blue slice is the purpose chart. Every bar there is a share of those 5,340. The gray slice is 17.5 percent, 1,133 students, who checked only “I did not use AI.” They are in none of those bars. That is what they said they did. It does not tell us a course banned AI, that they did not want to use it, or that they could not get it. Now the right pie. How often have you used each kind of tool? Of 6,703 students, 38 percent used one every week, 42 percent less often, and 19.8 percent marked Never on every tool. That 1,330 is not the 1,133 on the left. One more number sits outside this pie. On text tools alone, 25 percent marked Never. Those students may still have used a coding, reading, or image tool.</p></div></section>
+<div class="script-src" hidden><p>Two pies, and the question numbers are on the slide. Start on the left, Question 24. For what purposes have you used AI tools for your coursework? The choices are the list under the pie, and students could check more than one. Of 6,473 who answered, 82.5 percent named a purpose. That blue slice is the purpose chart. The gray slice is 17.5 percent, 1,133 students, who checked only “I did not use AI.” They are in none of those bars. That is what they said they did. It does not tell us a course banned AI, that they did not want to use it, or that they could not get it. Now Question 23, on the right. How often have you used AI tools or features in your UCLA coursework during the past year? One rating for each kind of tool, from Never to daily. Of 6,703 students, 38 percent used one every week, 42 percent less often, and 19.8 percent marked Never on every tool. That 1,330 is not the 1,133 on the left. On text tools alone, 25 percent marked Never. Those students may still have used a coding, reading, or image tool.</p></div></section>
 <section class="slide" aria-label="Purposes by school">
   <h2>Code and data work split the schools. Brainstorming is common everywhere.</h2>
   <p class="dek">Share of each school’s coursework users who chose the purpose. The campus total is set apart, below the schools. Outlined cells are the stand-outs.</p>
