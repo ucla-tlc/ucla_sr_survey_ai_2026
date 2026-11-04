@@ -246,6 +246,17 @@ table.mini th, table.mini td { padding: 6px 10px; border-bottom: 1px solid var(-
 .twocol h3 { font-size: 28px; font-weight: 760; color: var(--navy); margin: 0 0 12px; }
 .bul { margin: 0; padding-left: 24px; font-size: 22px; line-height: 1.4; }
 .bul li { margin: 0 0 12px; padding-left: 4px; }
+.qpair { display: grid; grid-template-columns: 1fr 1fr; column-gap: 28px; align-items: stretch; }
+.qpair article { background: var(--panel); border-radius: 0 0 8px 8px; padding: 16px 24px 14px; }
+.qpair .sameq { border-top: 6px solid var(--blue); }
+.qpair .diffq { border-top: 6px solid #8A97A3; }
+.qtag { margin: 0 0 6px; font-size: 17px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+.qpair h3 { font-size: 25px; line-height: 1.22; font-weight: 760; color: var(--navy); margin: 0 0 12px; }
+.qpair dl { margin: 0; }
+.qpair dl div { margin: 0 0 10px; }
+.qpair dt { font-size: 20px; font-weight: 760; color: var(--navy); }
+.qpair dd { margin: 2px 0 0; font-size: 20px; line-height: 1.35; }
+.qnote { margin: 4px 0 0; font-size: 18px; line-height: 1.35; color: var(--muted); }
 
 /* 7. Heatmap */
 .heat-split { grid-template-columns: 1fr 420px; column-gap: 48px; }
@@ -653,8 +664,8 @@ body.list .progress, body.list .controls, body.list .cover-hint { display: none;
       <div class="aside-block grey">
         <p class="side-h">Not in these bars</p>
         <p class="side-n">17.5%</p>
-        <p class="side-t">1,133 of the 6,473 students who answered chose only “I did not use AI for my coursework.”</p>
-        <p class="side-s">They use a different base. The next slide looks at this group.</p>
+        <p class="side-t">Same question, other choice. 1,133 checked only “I did not use AI for my coursework.”</p>
+        <p class="side-s">They are in none of these bars. The next slide sets that choice next to this chart.</p>
       </div>
     </aside>
   </div>
@@ -663,35 +674,37 @@ body.list .progress, body.list .controls, body.list .cover-hint { display: none;
 <ul class="cols"><li>Brainstorming ideas</li><li>Researching topics</li><li>Drafting/revising writing</li><li>Summarizing readings/lectures</li><li>Code generation/debugging</li><li>Drafting/revising presentations</li><li>Translation</li><li>Data analysis/visualization</li><li>Feedback on work</li><li>Creating study materials</li><li>Clarifying complex topics</li><li>Transcription</li><li>I did not use AI for my coursework</li></ul></aside>
 <div class="script-src" hidden><p>This is only the 5,340 students who named a use, and they could choose more than one. The top of the list is thinking and studying: brainstorming, then research, clarifying a hard idea, summarizing, and making study materials. Drafting or revising writing is further down, under 40 percent. So the common job is not “write my paper.” It is help me think, look it up, and study. The box on the right is a different group. The next slide stays with them.</p></div></section>
 <section class="slide" aria-label="Students who did not use AI">
-  <h2>17.5% of students who answered said they did not use AI for coursework.</h2>
-  <p class="dek">6,473 students answered the purpose checklist.</p>
-  <div class="propbar" role="img" aria-label="17.5 percent, 1,133 students, chose only I did not use AI for my coursework. 82.5 percent, 5,340 students, named at least one purpose.">
-    <span class="pseg nv" style="flex-grow:1133"><b>17.5%</b><span>1,133 chose only this option</span></span>
-    <span class="pseg use" style="flex-grow:5340"><b>82.5%</b><span>5,340 named at least one purpose</span></span>
+  <h2>The purpose chart and this 17.5% are the same question.</h2>
+  <p class="dek">“For what purposes have you used AI tools for your coursework?” 6,473 students answered.</p>
+  <div class="propbar" role="img" aria-label="Same question as the purpose chart. 17.5 percent, 1,133 students, checked only I did not use AI and are not in the purpose chart. 82.5 percent, 5,340 students, are everyone in the purpose chart.">
+    <span class="pseg nv" style="flex-grow:1133"><b>17.5%</b><span>1,133 only “I did not use AI”</span></span>
+    <span class="pseg use" style="flex-grow:5340"><b>82.5%</b><span>5,340, everyone in the purpose chart</span></span>
   </div>
-  <div class="twocol">
-    <div>
-      <h3>What the 17.5% is</h3>
-      <ul class="bul">
-        <li>On the purpose list, 1,133 students checked only “I did not use AI for my coursework.” They did not check brainstorming, research, or any other use.</li>
-        <li>The purpose chart leaves them out. Brainstorming at 65.5% is 65.5% of the 5,340 who named a use, not of every senior.</li>
-        <li>This is what they said they did. It does not say a course banned AI, that they preferred not to use it, or that they had no access.</li>
-      </ul>
-    </div>
-    <div>
-      <h3>Never is a different question</h3>
-      <ul class="bul">
-        <li>The tool question asked how often they used each kind of tool. Those Never answers are not these 1,133 students.</li>
-        <li>1,330 of 6,703 marked Never on every tool: text, coding, reading, and image.</li>
-        <li>25.4% marked Never on text tools only. That is not “never used AI.” They may still have used a coding, reading, or image tool.</li>
-      </ul>
-    </div>
+  <div class="qpair">
+    <article class="sameq">
+      <p class="qtag">Same question as the purpose chart</p>
+      <h3>For what purposes have you used AI for coursework?</h3>
+      <dl>
+        <div><dt>Purpose chart, the blue group</dt><dd>5,340 students checked a purpose, such as brainstorming or research. Each bar on that chart is a share of these 5,340.</dd></div>
+        <div><dt>This 17.5%, the gray group</dt><dd>1,133 checked only “I did not use AI for my coursework.” They are missing from every bar on the purpose chart.</dd></div>
+      </dl>
+      <p class="qnote">That gray answer is what they said they did. It does not say a course banned AI, that they preferred not to use it, or that they had no access.</p>
+    </article>
+    <article class="diffq">
+      <p class="qtag">A different question</p>
+      <h3>How often have you used each kind of AI tool?</h3>
+      <dl>
+        <div><dt>1,330 of 6,703</dt><dd>Marked Never for every kind of tool: text, coding, reading, and image.</dd></div>
+        <div><dt>25.4%</dt><dd>Marked Never for text tools only. They may still have used a coding, reading, or image tool.</dd></div>
+      </dl>
+      <p class="qnote">These Never answers are not the 1,133. They do not appear on the purpose chart.</p>
+    </article>
   </div>
   <footer class="sf"><span class="sec"><b class="org">UCLA TLC</b><span>A separate group</span></span><span class="sf-r"><button class="itembtn" type="button" aria-expanded="false" aria-controls="item-6">Survey item</button><span class="pg">6 / 16</span></span></footer>
   <aside class="item" id="item-6" hidden aria-label="Survey item wording"><div class="item-head"><h3>Survey item</h3><button class="item-close" type="button">Close</button></div><p>24. For what purposes have you used AI tools for your coursework? (Select all that apply.)</p>
 <ul><li>I did not use AI for my coursework</li></ul>
-<p>The 1,133 checked only “I did not use AI,” so they are not in the purpose percentages. Never is the tool question, not this one. 1,330 of 6,703 marked Never on every tool. 25.4% marked Never on text tools only and may have used another tool.</p></aside>
-<div class="script-src" hidden><p>This slide keeps three answers from being treated as one group. On the purpose list, 1,133 students checked only “I did not use AI for my coursework.” They did not check brainstorming or anything else, so the purpose chart leaves them out. Brainstorming at 65 percent is 65 percent of the 5,340 who named a use. That 1,133 is what they said they did. It does not tell us a course banned AI, that they did not want to use it, or that they could not get access. Never comes from the other question, how often they used each kind of tool. 1,330 students marked Never on every tool. Separately, 25 percent marked Never for text tools only. Those students may still have used a coding, reading, or image tool. Do not add these figures together.</p></div></section>
+<p>Question 24, the same item as the purpose chart: “For what purposes have you used AI tools for your coursework?” The 5,340 who named a purpose are the purpose chart. The 1,133 checked only “I did not use AI,” so they are in none of those bars. Question 23 is different: “How often have you used each kind of AI tool?” 1,330 of 6,703 marked Never on every tool. 25.4% marked Never on text tools only and may have used another tool.</p></aside>
+<div class="script-src" hidden><p>The purpose chart and the bar on this slide come from one question. For what purposes have you used AI tools for your coursework? The blue part, 5,340 students, is the purpose chart. They checked a purpose, such as brainstorming. Each bar there is a share of those 5,340. The gray part, 1,133 students, checked only “I did not use AI for my coursework,” so they are missing from every purpose bar. That is what they said they did. It does not tell us a course banned AI, that they did not want to use it, or that they could not get it. The Never numbers are a different question: How often have you used each kind of tool? 1,330 students marked Never on every tool. Twenty-five percent marked Never for text tools only, and may still have used a coding, reading, or image tool. Those Never answers are not the 1,133.</p></div></section>
 <section class="slide" aria-label="Purposes by school">
   <h2>Code and data work split the schools. Brainstorming is common everywhere.</h2>
   <p class="dek">Share of each school’s coursework users who chose the purpose. The campus total is set apart, below the schools. Outlined cells are the stand-outs.</p>
