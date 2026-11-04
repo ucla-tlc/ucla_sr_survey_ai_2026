@@ -268,6 +268,12 @@ table.mini th, table.mini td { padding: 6px 10px; border-bottom: 1px solid var(-
 .pie-key i { margin-top: 4px; }
 .pie-key b { display: block; font-size: 28px; font-weight: 800; color: var(--navy); line-height: 1; }
 .pie-key span { display: block; font-size: 18px; line-height: 1.3; color: var(--ink); margin-top: 4px; }
+.nevers { display: flex; flex-direction: column; gap: 36px; margin-top: 10px; }
+.never-top { display: flex; align-items: baseline; gap: 16px; margin: 0 0 10px; }
+.never-top b { font-size: 52px; font-weight: 800; color: var(--navy); letter-spacing: -0.03em; line-height: 1; }
+.never-top span { font-size: 20px; line-height: 1.3; }
+.ntrack { height: 64px; background: var(--sky); border-radius: 8px; overflow: hidden; }
+.ntrack i { display: block; height: 100%; background: var(--never); }
 
 /* 7. Heatmap */
 .heat-split { grid-template-columns: 1fr 420px; column-gap: 48px; }
@@ -686,7 +692,7 @@ body.list .progress, body.list .controls, body.list .cover-hint { display: none;
 <div class="script-src" hidden><p>This is only the 5,340 students who named a use, and they could choose more than one. The top of the list is thinking and studying: brainstorming, then research, clarifying a hard idea, summarizing, and making study materials. Drafting or revising writing is further down, under 40 percent. So the common job is not “write my paper.” It is help me think, look it up, and study. The box on the right is a different group. The next slide stays with them.</p></div></section>
 <section class="slide" aria-label="Two questions, two counts">
   <h2>Two questions, two counts.</h2>
-  <p class="dek">Q24 is the purpose chart. Q23 is how often. The gray slices are not the same students.</p>
+  <p class="dek">Gray is who did not use it. The three gray counts are not the same students.</p>
   <div class="pies">
     <figure>
       <p class="qtag">Q24 / Q214</p>
@@ -704,16 +710,19 @@ body.list .progress, body.list .controls, body.list .cover-hint { display: none;
     <figure>
       <p class="qtag">Q23 / Q213</p>
       <h3>How often have you used AI tools or features in your UCLA coursework during the past year?</h3>
-      <p class="qfmt">One rating per row: Never; Once; Several times per year; Monthly; Weekly; Several times per week; Daily.</p>
-      <div class="pie-row">
-        <div class="pie often" role="img" aria-label="Question 23, 6,703 students. Weekly or more 38.0 percent, 2,550. Less than weekly 42.1 percent, 2,823. Never on every tool 19.8 percent, 1,330."><span><b>6,703</b><em>rated a tool</em></span></div>
-        <ul class="pie-key">
-          <li><i class="sw wk"></i><div><b>38.0%</b><span>Weekly or more. 2,550.</span></div></li>
-          <li><i class="sw lt"></i><div><b>42.1%</b><span>Less than weekly. 2,823.</span></div></li>
-          <li><i class="sw nv"></i><div><b>19.8%</b><span>Never on every tool. 1,330.</span></div></li>
-        </ul>
+      <p class="qfmt">One rating per row, from Never to daily. Gray is the Never share.</p>
+      <div class="nevers">
+        <div>
+          <p class="never-top"><b>19.8%</b><span>Never on every tool<br>1,330 of 6,703</span></p>
+          <div class="ntrack" role="img" aria-label="19.8 percent, 1,330 of 6,703, marked Never on every tool. 80.2 percent, 5,373, used at least one tool."><i style="width:19.8%"></i></div>
+          <p class="qnote">The rest, 5,373, used at least one tool.</p>
+        </div>
+        <div>
+          <p class="never-top"><b>25.4%</b><span>Never on text tools<br>1,697 of 6,681</span></p>
+          <div class="ntrack" role="img" aria-label="25.4 percent, 1,697 of 6,681, marked Never on text tools. They may still have used a coding, reading, or image tool."><i style="width:25.4%"></i></div>
+          <p class="qnote">One row of the same question, not the 1,330 above. These students may still have used a coding, reading, or image tool.</p>
+        </div>
       </div>
-      <p class="qnote">Text tools alone are a separate cut: 25.4% Never, 1,697 of 6,681. Those students may still have used another tool. The form says “select all,” but the scale and the data are a frequency for each tool.</p>
     </figure>
   </div>
   <footer class="sf"><span class="sec"><b class="org">UCLA TLC</b><span>Two questions</span></span><span class="sf-r"><button class="itembtn" type="button" aria-expanded="false" aria-controls="item-6q24">Q24 item</button><button class="itembtn" type="button" aria-expanded="false" aria-controls="item-6q23">Q23 item</button><span class="pg">6 / 16</span></span></footer>
@@ -727,7 +736,7 @@ body.list .progress, body.list .controls, body.list .cover-hint { display: none;
 <ul><li>Generative text tools (e.g., ChatGPT, Gemini, Claude, Perplexity AI)</li><li>Coding and productivity assistants (e.g., GitHub Copilot, Cursor IDE, Microsoft Copilot, CoCalc)</li><li>Reading or summarizing tools (e.g., ChatPDF, Notebook LM)</li><li>Image or media generation tools (e.g., DALL·E, Midjourney, Firefly, LMS-integrated AI, Google Workspace AI)</li><li>Other (write-in)</li></ul>
 <p>Of 6,703 who rated a tool: weekly or more 2,550, less than weekly 2,823, Never on every tool 1,330. Text tools alone: Never 1,697 of 6,681.</p>
 <p>The form says “select all that apply,” but the scale and the data are a frequency for each tool.</p></aside>
-<div class="script-src" hidden><p>Two pies, and the question numbers are on the slide. Start on the left, Question 24. For what purposes have you used AI tools for your coursework? The choices open from Q24 item, on the right, and Q23 item, on the left. Students could check more than one purpose. Of 6,473 who answered, 82.5 percent named a purpose. That blue slice is the purpose chart. The gray slice is 17.5 percent, 1,133 students, who checked only “I did not use AI.” They are in none of those bars. That is what they said they did. It does not tell us a course banned AI, that they did not want to use it, or that they could not get it. Now Question 23, on the right. How often have you used AI tools or features in your UCLA coursework during the past year? One rating for each kind of tool, from Never to daily. Of 6,703 students, 38 percent used one every week, 42 percent less often, and 19.8 percent marked Never on every tool. That 1,330 is not the 1,133 on the left. On text tools alone, 25 percent marked Never. Those students may still have used a coding, reading, or image tool.</p></div></section>
+<div class="script-src" hidden><p>Two pies, and the question numbers are on the slide. Start on the left, Question 24. For what purposes have you used AI tools for your coursework? The choices open from Q24 item, on the right, and Q23 item, on the left. Students could check more than one purpose. Of 6,473 who answered, 82.5 percent named a purpose. That blue slice is the purpose chart. The gray slice is 17.5 percent, 1,133 students, who checked only “I did not use AI.” They are in none of those bars. That is what they said they did. It does not tell us a course banned AI, that they did not want to use it, or that they could not get it. Now Question 23, on the right. The bars show only who marked Never. The top bar is Never on every tool: 19.8 percent, 1,330 of 6,703. The lower bar is Never on text tools: 25.4 percent, 1,697 of 6,681. That lower bar is one row. Those students may still have used a coding, reading, or image tool. Neither gray bar is the 1,133 on the left.</p></div></section>
 <section class="slide" aria-label="Purposes by school">
   <h2>Code and data work split the schools. Brainstorming is common everywhere.</h2>
   <p class="dek">Share of each school’s coursework users who chose the purpose. The campus total is set apart, below the schools. Outlined cells are the stand-outs.</p>
