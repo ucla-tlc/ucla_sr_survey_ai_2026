@@ -254,24 +254,21 @@ table.mini th, table.mini td { padding: 6px 10px; border-bottom: 1px solid var(-
 .qnote { margin: 12px 0 0; font-size: 18px; line-height: 1.35; color: var(--muted); max-width: 660px; }
 .pies { display: grid; grid-template-columns: 1fr 1fr; column-gap: 56px; align-items: start; }
 .pies figure { margin: 0; }
-.pies h3 { font-size: 22px; line-height: 1.25; font-weight: 760; color: var(--navy); margin: 0 0 4px; max-width: 680px; }
-.qfmt { margin: 0 0 12px; font-size: 16px; line-height: 1.35; color: var(--muted); }
-.pie-row { display: flex; align-items: center; gap: 22px; }
-.pie { width: 188px; height: 188px; border-radius: 50%; flex: none; position: relative; }
-.pie span { position: absolute; inset: 44px; z-index: 1; border-radius: 50%; background: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
-.pie span b { font-size: 26px; font-weight: 800; color: var(--navy); line-height: 1; letter-spacing: -0.02em; }
-.pie span em { font-style: normal; font-size: 14px; color: var(--muted); margin-top: 3px; }
+.pies h3 { font-size: 24px; line-height: 1.25; font-weight: 760; color: var(--navy); margin: 0 0 6px; max-width: 680px; }
+.qfmt { margin: 0 0 16px; font-size: 18px; line-height: 1.35; color: var(--muted); }
+.pie-row { display: flex; align-items: center; gap: 28px; }
+.pie { width: 320px; height: 320px; border-radius: 50%; flex: none; position: relative; }
+.pie span { position: absolute; inset: 74px; z-index: 1; border-radius: 50%; background: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.pie span b { font-size: 36px; font-weight: 800; color: var(--navy); line-height: 1; letter-spacing: -0.02em; }
+.pie span em { font-style: normal; font-size: 16px; color: var(--muted); margin-top: 4px; }
 .pie.purpose { background: conic-gradient(var(--never) 0 17.534%, var(--blue) 17.534% 100%); }
 .pie.often { background: conic-gradient(var(--gold) 0 38.043%, var(--sky) 38.043% 80.158%, var(--never) 80.158% 100%); }
 .pie-key { list-style: none; margin: 0; padding: 0; }
-.pie-key li { display: grid; grid-template-columns: 18px auto; column-gap: 10px; align-items: start; margin: 0 0 10px; }
+.pie-key li { display: grid; grid-template-columns: 22px auto; column-gap: 12px; align-items: start; margin: 0 0 16px; }
 .pie-key li:last-child { margin-bottom: 0; }
-.pie-key i { margin-top: 3px; width: 16px; height: 16px; }
-.pie-key b { display: block; font-size: 22px; font-weight: 800; color: var(--navy); line-height: 1; }
-.pie-key span { display: block; font-size: 16px; line-height: 1.3; color: var(--ink); margin-top: 3px; }
-.qopts { margin: 10px 0 0; padding: 0 0 0 16px; font-size: 15px; line-height: 1.35; }
-.qopts.two { columns: 2; column-gap: 22px; }
-.qopts li { break-inside: avoid; margin: 0 0 1px; }
+.pie-key i { margin-top: 4px; }
+.pie-key b { display: block; font-size: 28px; font-weight: 800; color: var(--navy); line-height: 1; }
+.pie-key span { display: block; font-size: 18px; line-height: 1.3; color: var(--ink); margin-top: 4px; }
 
 /* 7. Heatmap */
 .heat-split { grid-template-columns: 1fr 420px; column-gap: 48px; }
@@ -703,7 +700,6 @@ body.list .progress, body.list .controls, body.list .cover-hint { display: none;
           <li><i class="sw nv"></i><div><b>17.5%</b><span>Only “I did not use AI.” 1,133. Not in that chart.</span></div></li>
         </ul>
       </div>
-      <ul class="qopts two"><li>Brainstorming ideas</li><li>Researching topics</li><li>Drafting or revising writing</li><li>Summarizing readings or lectures</li><li>Code generation or debugging</li><li>Drafting or revising presentations</li><li>Translation</li><li>Data analysis or visualization</li><li>Feedback on work</li><li>Creating study materials</li><li>Clarifying complex topics</li><li>Transcription</li><li>Other</li><li>I did not use AI for my coursework</li></ul>
       <p class="qnote">The gray answer is what they said they did. It does not say a course banned AI, that they preferred not to use it, or that they had no access.</p>
     </figure>
     <figure>
@@ -718,7 +714,6 @@ body.list .progress, body.list .controls, body.list .cover-hint { display: none;
           <li><i class="sw nv"></i><div><b>19.8%</b><span>Never on every tool. 1,330.</span></div></li>
         </ul>
       </div>
-      <ul class="qopts"><li>Generative text tools (e.g., ChatGPT, Gemini, Claude, Perplexity AI)</li><li>Coding and productivity assistants (e.g., GitHub Copilot, Cursor IDE, Microsoft Copilot, CoCalc)</li><li>Reading or summarizing tools (e.g., ChatPDF, Notebook LM)</li><li>Image or media generation tools (e.g., DALL·E, Midjourney, Firefly, LMS-integrated AI, Google Workspace AI)</li><li>Other (write-in)</li></ul>
       <p class="qnote">Text tools alone are a separate cut: 25.4% Never, 1,697 of 6,681. Those students may still have used another tool. The form says “select all,” but the scale and the data are a frequency for each tool.</p>
     </figure>
   </div>
@@ -740,7 +735,7 @@ body.list .progress, body.list .controls, body.list .cover-hint { display: none;
     <p>The form says “select all that apply,” but the scale and the data are a frequency for each tool.</p>
   </div>
 </div></aside>
-<div class="script-src" hidden><p>Two pies, and the question numbers are on the slide. Start on the left, Question 24. For what purposes have you used AI tools for your coursework? The choices are the list under the pie, and students could check more than one. Of 6,473 who answered, 82.5 percent named a purpose. That blue slice is the purpose chart. The gray slice is 17.5 percent, 1,133 students, who checked only “I did not use AI.” They are in none of those bars. That is what they said they did. It does not tell us a course banned AI, that they did not want to use it, or that they could not get it. Now Question 23, on the right. How often have you used AI tools or features in your UCLA coursework during the past year? One rating for each kind of tool, from Never to daily. Of 6,703 students, 38 percent used one every week, 42 percent less often, and 19.8 percent marked Never on every tool. That 1,330 is not the 1,133 on the left. On text tools alone, 25 percent marked Never. Those students may still have used a coding, reading, or image tool.</p></div></section>
+<div class="script-src" hidden><p>Two pies, and the question numbers are on the slide. Start on the left, Question 24. For what purposes have you used AI tools for your coursework? The choices are under Survey items, and students could check more than one. Of 6,473 who answered, 82.5 percent named a purpose. That blue slice is the purpose chart. The gray slice is 17.5 percent, 1,133 students, who checked only “I did not use AI.” They are in none of those bars. That is what they said they did. It does not tell us a course banned AI, that they did not want to use it, or that they could not get it. Now Question 23, on the right. How often have you used AI tools or features in your UCLA coursework during the past year? One rating for each kind of tool, from Never to daily. Of 6,703 students, 38 percent used one every week, 42 percent less often, and 19.8 percent marked Never on every tool. That 1,330 is not the 1,133 on the left. On text tools alone, 25 percent marked Never. Those students may still have used a coding, reading, or image tool.</p></div></section>
 <section class="slide" aria-label="Purposes by school">
   <h2>Code and data work split the schools. Brainstorming is common everywhere.</h2>
   <p class="dek">Share of each school’s coursework users who chose the purpose. The campus total is set apart, below the schools. Outlined cells are the stand-outs.</p>
