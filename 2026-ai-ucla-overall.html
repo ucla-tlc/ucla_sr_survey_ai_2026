@@ -108,10 +108,9 @@ h2 {
 .item p { margin: 10px 0; }
 .item ul { margin: 8px 0; padding-left: 24px; }
 .item ul.cols { columns: 2; column-gap: 48px; }
-.item .qsplit { display: grid; grid-template-columns: 1fr 1fr; column-gap: 40px; margin-top: 6px; }
-.item .qsplit .qtag { margin: 0; }
-.item .qsplit p { margin: 6px 0; }
-.item .qsplit ul { margin: 4px 0; }
+.item.half { top: 176px; bottom: 74px; width: 740px; max-height: none; }
+.item.half.cover-right { left: auto; right: 40px; }
+.item.half.cover-left { right: auto; left: 40px; }
 table.mini { border-collapse: collapse; font-size: 19px; margin-top: 12px; width: 100%; }
 table.mini th, table.mini td { padding: 6px 10px; border-bottom: 1px solid var(--rule); text-align: left; }
 .r { text-align: right !important; }
@@ -717,25 +716,18 @@ body.list .progress, body.list .controls, body.list .cover-hint { display: none;
       <p class="qnote">Text tools alone are a separate cut: 25.4% Never, 1,697 of 6,681. Those students may still have used another tool. The form says “select all,” but the scale and the data are a frequency for each tool.</p>
     </figure>
   </div>
-  <footer class="sf"><span class="sec"><b class="org">UCLA TLC</b><span>Two questions</span></span><span class="sf-r"><button class="itembtn" type="button" aria-expanded="false" aria-controls="item-6">Survey items</button><span class="pg">6 / 16</span></span></footer>
-  <aside class="item" id="item-6" hidden aria-label="Wording of both survey questions"><div class="item-head"><h3>Survey items</h3><button class="item-close" type="button">Close</button></div>
-<div class="qsplit">
-  <div>
-    <p class="qtag">Left pie</p>
-    <p><b>24 / Q214.</b> For what purposes have you used AI tools for your coursework? (Select all that apply.)</p>
-    <ul class="cols"><li>Brainstorming ideas</li><li>Researching topics</li><li>Drafting or revising writing</li><li>Summarizing readings or lectures</li><li>Code generation or debugging</li><li>Drafting or revising presentations</li><li>Translation</li><li>Data analysis or visualization</li><li>Feedback on work</li><li>Creating study materials</li><li>Clarifying complex topics</li><li>Transcription</li><li>Other</li><li>I did not use AI for my coursework</li></ul>
-    <p>6,473 answered. 5,340 named a purpose. 1,133 checked only “I did not use AI for my coursework.”</p>
-  </div>
-  <div>
-    <p class="qtag">Right pie</p>
-    <p><b>23 / Q213.</b> How often have you used AI tools or features in your UCLA coursework during the past year?</p>
-    <p>One rating per row: Never; Once; Several times per year; Monthly; Weekly; Several times per week; Daily.</p>
-    <ul><li>Generative text tools (e.g., ChatGPT, Gemini, Claude, Perplexity AI)</li><li>Coding and productivity assistants (e.g., GitHub Copilot, Cursor IDE, Microsoft Copilot, CoCalc)</li><li>Reading or summarizing tools (e.g., ChatPDF, Notebook LM)</li><li>Image or media generation tools (e.g., DALL·E, Midjourney, Firefly, LMS-integrated AI, Google Workspace AI)</li><li>Other (write-in)</li></ul>
-    <p>Of 6,703 who rated a tool: weekly or more 2,550, less than weekly 2,823, Never on every tool 1,330. Text tools alone: Never 1,697 of 6,681.</p>
-    <p>The form says “select all that apply,” but the scale and the data are a frequency for each tool.</p>
-  </div>
-</div></aside>
-<div class="script-src" hidden><p>Two pies, and the question numbers are on the slide. Start on the left, Question 24. For what purposes have you used AI tools for your coursework? The choices are under Survey items, and students could check more than one. Of 6,473 who answered, 82.5 percent named a purpose. That blue slice is the purpose chart. The gray slice is 17.5 percent, 1,133 students, who checked only “I did not use AI.” They are in none of those bars. That is what they said they did. It does not tell us a course banned AI, that they did not want to use it, or that they could not get it. Now Question 23, on the right. How often have you used AI tools or features in your UCLA coursework during the past year? One rating for each kind of tool, from Never to daily. Of 6,703 students, 38 percent used one every week, 42 percent less often, and 19.8 percent marked Never on every tool. That 1,330 is not the 1,133 on the left. On text tools alone, 25 percent marked Never. Those students may still have used a coding, reading, or image tool.</p></div></section>
+  <footer class="sf"><span class="sec"><b class="org">UCLA TLC</b><span>Two questions</span></span><span class="sf-r"><button class="itembtn" type="button" aria-expanded="false" aria-controls="item-6q24">Q24 item</button><button class="itembtn" type="button" aria-expanded="false" aria-controls="item-6q23">Q23 item</button><span class="pg">6 / 16</span></span></footer>
+  <aside class="item half cover-right" id="item-6q24" hidden aria-label="Question 24 wording"><div class="item-head"><h3>Q24 / Q214</h3><button class="item-close" type="button">Close</button></div>
+<p>For what purposes have you used AI tools for your coursework? (Select all that apply.)</p>
+<ul class="cols"><li>Brainstorming ideas</li><li>Researching topics</li><li>Drafting or revising writing</li><li>Summarizing readings or lectures</li><li>Code generation or debugging</li><li>Drafting or revising presentations</li><li>Translation</li><li>Data analysis or visualization</li><li>Feedback on work</li><li>Creating study materials</li><li>Clarifying complex topics</li><li>Transcription</li><li>Other</li><li>I did not use AI for my coursework</li></ul>
+<p>6,473 answered. 5,340 named a purpose. 1,133 checked only “I did not use AI for my coursework.”</p></aside>
+  <aside class="item half cover-left" id="item-6q23" hidden aria-label="Question 23 wording"><div class="item-head"><h3>Q23 / Q213</h3><button class="item-close" type="button">Close</button></div>
+<p>How often have you used AI tools or features in your UCLA coursework during the past year?</p>
+<p>One rating per row: Never; Once; Several times per year; Monthly; Weekly; Several times per week; Daily.</p>
+<ul><li>Generative text tools (e.g., ChatGPT, Gemini, Claude, Perplexity AI)</li><li>Coding and productivity assistants (e.g., GitHub Copilot, Cursor IDE, Microsoft Copilot, CoCalc)</li><li>Reading or summarizing tools (e.g., ChatPDF, Notebook LM)</li><li>Image or media generation tools (e.g., DALL·E, Midjourney, Firefly, LMS-integrated AI, Google Workspace AI)</li><li>Other (write-in)</li></ul>
+<p>Of 6,703 who rated a tool: weekly or more 2,550, less than weekly 2,823, Never on every tool 1,330. Text tools alone: Never 1,697 of 6,681.</p>
+<p>The form says “select all that apply,” but the scale and the data are a frequency for each tool.</p></aside>
+<div class="script-src" hidden><p>Two pies, and the question numbers are on the slide. Start on the left, Question 24. For what purposes have you used AI tools for your coursework? The choices open from Q24 item, on the right, and Q23 item, on the left. Students could check more than one purpose. Of 6,473 who answered, 82.5 percent named a purpose. That blue slice is the purpose chart. The gray slice is 17.5 percent, 1,133 students, who checked only “I did not use AI.” They are in none of those bars. That is what they said they did. It does not tell us a course banned AI, that they did not want to use it, or that they could not get it. Now Question 23, on the right. How often have you used AI tools or features in your UCLA coursework during the past year? One rating for each kind of tool, from Never to daily. Of 6,703 students, 38 percent used one every week, 42 percent less often, and 19.8 percent marked Never on every tool. That 1,330 is not the 1,133 on the left. On text tools alone, 25 percent marked Never. Those students may still have used a coding, reading, or image tool.</p></div></section>
 <section class="slide" aria-label="Purposes by school">
   <h2>Code and data work split the schools. Brainstorming is common everywhere.</h2>
   <p class="dek">Share of each school’s coursework users who chose the purpose. The campus total is set apart, below the schools. Outlined cells are the stand-outs.</p>
@@ -926,9 +918,9 @@ body.list .progress, body.list .controls, body.list .cover-hint { display: none;
     });
   }
 
-  function togglePanel(slide) {
+  function togglePanel(slide, btn) {
     if (!slide) return;
-    const btn = slide.querySelector(".itembtn");
+    if (!btn) btn = slide.querySelector(".itembtn");
     if (!btn) return;
     const panel = document.getElementById(btn.getAttribute("aria-controls"));
     const willOpen = panel.hidden;
@@ -1080,12 +1072,13 @@ body.list .progress, body.list .controls, body.list .cover-hint { display: none;
       }
     }
     const ib = t.closest(".itembtn");
-    if (ib) { togglePanel(ib.closest(".slide")); return; }
+    if (ib) { togglePanel(ib.closest(".slide"), ib); return; }
     const cl = t.closest(".item-close");
     if (cl) {
       const sl = cl.closest(".slide");
+      const panel = cl.closest(".item");
       closePanels();
-      const b = sl.querySelector(".itembtn");
+      const b = panel ? sl.querySelector('[aria-controls="' + panel.id + '"]') : sl.querySelector(".itembtn");
       if (b) b.focus({ preventScroll: true });
       return;
     }
@@ -1135,8 +1128,9 @@ body.list .progress, body.list .controls, body.list .cover-hint { display: none;
     const open = openPanel();
     if (k === "Escape" && open) {
       const sl = open.closest(".slide");
+      const id = open.id;
       closePanels();
-      const b = sl.querySelector(".itembtn");
+      const b = sl.querySelector('[aria-controls="' + id + '"]') || sl.querySelector(".itembtn");
       if (b) b.focus({ preventScroll: true });
       return;
     }
