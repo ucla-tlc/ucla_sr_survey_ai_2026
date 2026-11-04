@@ -29,6 +29,8 @@
 * { box-sizing: border-box; }
 html, body { margin: 0; height: 100%; }
 body {
+  --bar-h: 84px;
+  --notes-h: 0px;
   background: var(--stage);
   color: var(--ink);
   font-family: "Public Sans", "Helvetica Neue", Arial, sans-serif;
@@ -36,7 +38,7 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow: hidden;
 }
-.stage { position: fixed; inset: 0; overflow: hidden; touch-action: pan-y; }
+.stage { position: fixed; top: 0; right: 0; left: 0; bottom: calc(var(--notes-h) + var(--bar-h)); overflow: hidden; touch-action: pan-y; }
 .deck { position: absolute; left: 0; top: 0; width: 1600px; height: 900px; transform-origin: 0 0; }
 :focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
 
@@ -450,7 +452,6 @@ body.notes-on .notes { display: flex; }
 .notes-x { margin-left: auto; font: inherit; font-size: 14px; padding: 4px 12px; cursor: pointer; color: var(--navy); background: #fff; border: 1px solid var(--rule); border-radius: 6px; }
 .notes-body { overflow: auto; max-width: 1150px; font-size: 18px; line-height: 1.5; }
 .notes-body p { margin: 0; }
-body.notes-on .controls { bottom: calc(var(--notes-h, 230px) + 12px); }
 .script-list { display: none; }
 body.list .notes { display: none; }
 body.list.notes-on .script-list { display: block; margin: -6px 0 12px; padding: 10px 16px; background: #fff; border-top: 3px solid var(--gold); font-size: 15px; line-height: 1.5; }
@@ -458,7 +459,7 @@ body.list.notes-on .script-list p { margin: 0; }
 
 /* On-screen controls */
 .controls {
-  position: fixed; left: 50%; transform: translateX(-50%); bottom: 14px; z-index: 10;
+  position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(var(--notes-h) + 14px); z-index: 10;
   display: flex; align-items: center; gap: 8px;
   background: rgba(10, 47, 71, 0.88); padding: 8px; border-radius: 10px;
   transition: opacity 0.3s ease;
@@ -480,6 +481,40 @@ button.ctl-count:hover, button.ctl-count:focus-visible { background: rgba(255, 2
   border: 0; border-radius: 6px; padding: 8px 4px; color: var(--navy);
 }
 body.idle .controls { opacity: 0; pointer-events: none; }
+body.overview .controls { opacity: 1; pointer-events: auto; }
+
+/* All slides */
+body.overview { overflow: hidden; }
+body.overview .stage {
+  position: fixed; top: 0; right: 0; left: 0;
+  height: var(--ov-view, calc(100vh - var(--notes-h) - var(--bar-h)));
+  bottom: auto; overflow: auto;
+}
+body.overview .deck {
+  position: relative; display: flex; flex-wrap: wrap; align-content: flex-start;
+  gap: 18px; width: auto; height: auto; transform: none !important;
+  padding: 28px;
+}
+body.overview .slide {
+  position: relative !important; inset: auto !important;
+  width: 1600px; height: 900px;
+  opacity: 1 !important; visibility: visible !important;
+  flex: none; cursor: pointer;
+  transform: scale(var(--ov, 0.22));
+  transform-origin: top left;
+  margin: 0 calc((var(--ov, 0.22) - 1) * 1600px) calc((var(--ov, 0.22) - 1) * 900px) 0;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+  outline: 8px solid transparent;
+}
+body.overview .slide.is-current { outline-color: var(--gold); box-shadow: inset 0 0 0 calc(12px / var(--ov, 0.22)) var(--gold); }
+body.overview .progress { display: none; }
+body.overview .slide::before {
+  content: attr(data-n);
+  position: absolute; z-index: 6; left: 36px; top: 28px;
+  background: var(--navy); color: #fff; font-weight: 800; line-height: 1;
+  font-size: calc(22px / var(--ov, 0.22));
+  padding: 0.35em 0.6em; border-radius: 0.35em;
+}
 
 /* Phone, portrait: stack the slides and scroll */
 body.list { overflow: auto; background: #E6ECF1; }
@@ -532,7 +567,7 @@ body.list .progress, body.list .controls, body.list .cover-hint { display: none;
       <p class="cover-note">Each square is 1% of the 6,703 seniors who rated at least one tool.</p>
     </figcaption>
   </figure>
-  <p class="cover-hint">Type a number to jump to a slide. Arrows move. F full screen. N script.</p>
+  <p class="cover-hint">All slides shows every slide. Type a number to jump. Arrows move. F full screen. N script.</p>
 <div class="script-src" hidden><p>This is the UCLA Senior Survey for 2025–26. College answers come from that survey. Engineering answers come from the SAIRO FDS file. Each square is 1 percent of the 6,703 seniors who rated a tool. Gold is weekly or more, about two in five. Blue is less often. The outline is the one in five who marked Never on every tool. Use is already common. The question worth our time is what students use it for.</p></div></section>
 <section class="slide" aria-label="Summary">
   <h2>What seniors told us about AI in coursework</h2>
@@ -787,6 +822,7 @@ body.list .progress, body.list .controls, body.list .cover-hint { display: none;
     <label>Slide <input type="text" inputmode="numeric" maxlength="2" autocomplete="off" aria-label="Slide number"></label>
   </form>
   <button type="button" data-act="next" aria-label="Next slide">Next</button>
+  <button type="button" data-act="overview" class="ghost" aria-pressed="false">All slides</button>
   <button type="button" data-act="notes" class="ghost" aria-pressed="true">Script</button>
   <button type="button" data-act="fs" class="ghost">Full screen</button>
 </nav>
@@ -806,6 +842,7 @@ body.list .progress, body.list .controls, body.list .cover-hint { display: none;
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   let cur = 0;
   let list = false;
+  let overview = false;
   const notesBody = document.querySelector(".notes-body");
   const notesN = document.querySelector(".notes-n");
   let notesOn = true;
@@ -865,7 +902,7 @@ body.list .progress, body.list .controls, body.list .cover-hint { display: none;
     i = Math.max(0, Math.min(total - 1, i));
     closePanels();
     cur = i;
-    if (!list) {
+    if (!list && !overview) {
       slides.forEach((s, k) => {
         const on = k === i;
         s.classList.toggle("is-active", on);
@@ -887,8 +924,28 @@ body.list .progress, body.list .controls, body.list .cover-hint { display: none;
   function fit() {
     const vw = window.innerWidth;
     const vh = window.innerHeight;
-    list = vw < 760 && vh > vw;
+    list = !overview && vw < 760 && vh > vw;
     document.body.classList.toggle("list", list);
+    document.body.classList.toggle("overview", overview);
+    const nh = (!list && notesOn) ? Math.max(150, Math.min(260, Math.round(vh * 0.28))) : 0;
+    document.body.style.setProperty("--notes-h", nh + "px");
+    if (overview) {
+      const cols = vw < 720 ? 2 : vw < 1100 ? 3 : 4;
+      const gap = 18;
+      const pad = 28;
+      const cell = (vw - pad * 2 - gap * (cols - 1)) / cols;
+      const cellH = cell * 900 / 1600;
+      const stageMax = vh - nh - 84;
+      const rowsNeeded = Math.ceil(total / cols);
+      const rowsThatFit = Math.max(1, Math.floor((stageMax - pad + gap) / (cellH + gap)));
+      const rowsShown = Math.min(rowsNeeded, rowsThatFit);
+      const viewH = Math.min(stageMax, pad + rowsShown * cellH + (rowsShown - 1) * gap);
+      document.body.style.setProperty("--ov", (cell / 1600).toFixed(4));
+      document.body.style.setProperty("--ov-view", Math.round(viewH) + "px");
+      deck.style.transform = "none";
+      slides.forEach((sl) => { sl.style.zoom = ""; sl.inert = false; sl.removeAttribute("aria-hidden"); });
+      return;
+    }
     if (list) {
       const s = vw / 1600;
       deck.style.transform = "";
@@ -900,14 +957,43 @@ body.list .progress, body.list .controls, body.list .cover-hint { display: none;
       });
     } else {
       slides.forEach((sl) => { sl.style.zoom = ""; });
-      const nh = notesOn ? Math.max(150, Math.min(260, Math.round(vh * 0.28))) : 0;
-      document.body.style.setProperty("--notes-h", nh + "px");
-      const ah = vh - nh;
+      const ah = vh - nh - 84;
       const s = Math.min(vw / 1600, ah / 900);
       deck.style.transform =
         "translate(" + (vw - 1600 * s) / 2 + "px, " + (ah - 900 * s) / 2 + "px) scale(" + s + ")";
       show(cur, false);
     }
+  }
+
+  function setOverviewButton() {
+    const b = document.querySelector('[data-act="overview"]');
+    if (!b) return;
+    b.textContent = overview ? "Close" : "All slides";
+    b.setAttribute("aria-pressed", overview ? "true" : "false");
+  }
+
+  function enterOverview() {
+    overview = true;
+    closePanels();
+    closeJump();
+    slides.forEach((s, i) => {
+      s.dataset.n = String(i + 1);
+      s.classList.toggle("is-current", i === cur);
+      s.classList.add("play");
+    });
+    setOverviewButton();
+    document.body.classList.remove("idle");
+    fit();
+    slides[cur].scrollIntoView({ block: "center" });
+  }
+
+  function leaveOverview() {
+    if (!overview) return;
+    overview = false;
+    slides.forEach((s) => s.classList.remove("is-current"));
+    setOverviewButton();
+    fit();
+    setHash(cur + 1);
   }
 
   function nearest() {
@@ -921,6 +1007,11 @@ body.list .progress, body.list .controls, body.list .cover-hint { display: none;
   }
 
   function goTo(n) {
+    if (overview) {
+      cur = n;
+      leaveOverview();
+      return;
+    }
     if (list) slides[n].scrollIntoView({ behavior: reduce ? "auto" : "smooth" });
     else show(n);
   }
@@ -936,6 +1027,14 @@ body.list .progress, body.list .controls, body.list .cover-hint { display: none;
 
   document.addEventListener("click", (e) => {
     const t = e.target;
+    if (overview && !t.closest(".controls") && !t.closest(".notes")) {
+      const sl = t.closest(".slide");
+      if (sl && deck.contains(sl)) {
+        e.preventDefault();
+        goTo(slides.indexOf(sl));
+        return;
+      }
+    }
     const ib = t.closest(".itembtn");
     if (ib) { togglePanel(ib.closest(".slide")); return; }
     const cl = t.closest(".item-close");
@@ -956,6 +1055,7 @@ body.list .progress, body.list .controls, body.list .cover-hint { display: none;
       else if (a === "fs") toggleFS();
       else if (a === "notes") toggleNotes();
       else if (a === "jump") openJump();
+      else if (a === "overview") { if (overview) leaveOverview(); else enterOverview(); }
     }
   });
 
@@ -987,6 +1087,7 @@ body.list .progress, body.list .controls, body.list .cover-hint { display: none;
       else if (k === "Enter") { e.preventDefault(); commitJump(); }
       return;
     }
+    if (overview && k === "Escape") { e.preventDefault(); leaveOverview(); return; }
     const open = openPanel();
     if (k === "Escape" && open) {
       const sl = open.closest(".slide");
@@ -1000,7 +1101,7 @@ body.list .progress, body.list .controls, body.list .cover-hint { display: none;
     if (k === "n" || k === "N") { toggleNotes(); return; }
     if (k === "g" || k === "G") { e.preventDefault(); openJump(); return; }
     if (/^[0-9]$/.test(k)) { e.preventDefault(); openJump(k); return; }
-    if (list) return;
+    if (overview || list) return;
     const onControl = e.target.closest && e.target.closest("button, a");
     if ((k === " " || k === "Enter") && onControl) return;
     if (open && (k === "ArrowUp" || k === "ArrowDown")) return;
@@ -1017,7 +1118,7 @@ body.list .progress, body.list .controls, body.list .cover-hint { display: none;
     sx = e.clientX; sy = e.clientY;
   }, { passive: true });
   window.addEventListener("pointerup", (e) => {
-    if (sx === null || list) { sx = null; return; }
+    if (sx === null || list || overview) { sx = null; return; }
     const dx = e.clientX - sx;
     const dy = e.clientY - sy;
     sx = null;
@@ -1031,7 +1132,7 @@ body.list .progress, body.list .controls, body.list .cover-hint { display: none;
     clearTimeout(idleTimer);
     idleTimer = setTimeout(() => {
       const ctl = document.querySelector(".controls");
-      if (!ctl.matches(":hover") && !ctl.contains(document.activeElement)) document.body.classList.add("idle");
+      if (!overview && !ctl.matches(":hover") && !ctl.contains(document.activeElement)) document.body.classList.add("idle");
     }, 2500);
   }
   window.addEventListener("mousemove", wake, { passive: true });
